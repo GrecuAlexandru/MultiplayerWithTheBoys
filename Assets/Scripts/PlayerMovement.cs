@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         if (PV.IsMine)
         {
             BasicMovement();
-            BasicRotation();
+          
         }
     }
 
@@ -38,9 +38,5 @@ public class PlayerMovement : MonoBehaviour
         myCC.Move(move * movementSpeed * Time.deltaTime);
     }
 
-    void BasicRotation()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
-        transform.Rotate(new Vector3(0, mouseX, 0));
-    }
+    
 }
