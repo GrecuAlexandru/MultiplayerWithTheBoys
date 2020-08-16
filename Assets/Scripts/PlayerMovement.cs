@@ -30,22 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
     void BasicMovement()
     {
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            myCC.Move(transform.forward * Time.deltaTime * movementSpeed);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myCC.Move(-transform.right * Time.deltaTime * movementSpeed);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            myCC.Move(-transform.forward * Time.deltaTime * movementSpeed);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            myCC.Move(transform.right * Time.deltaTime * movementSpeed);
-        }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        myCC.Move(move * movementSpeed * Time.deltaTime);
     }
 
     void BasicRotation()
